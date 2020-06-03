@@ -7,7 +7,8 @@ Predictive analytics for Soccer using Deeplearning and Statistical Probability. 
 
 Powered by Scala with Akka Actors, Clustering, HTTP and Streams to provide a reactive real-time server that allows for dynamic subscriptions.
 
-## Deployment
+## Install
 
+## Usage
 
 ## Development
