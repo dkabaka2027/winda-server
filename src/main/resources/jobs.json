@@ -1,0 +1,312 @@
+[
+  {
+    "id": null,
+    "name": "Futhead Spider",
+    "description": "",
+    "urls": [
+      "https://www.futhead.com/10/leagues",
+      "https://www.futhead.com/11/leagues",
+      "https://www.futhead.com/12/leagues",
+      "https://www.futhead.com/13/leagues",
+      "https://www.futhead.com/14/leagues",
+      "https://www.futhead.com/15/leagues",
+      "https://www.futhead.com/16/leagues",
+      "https://www.futhead.com/17/leagues",
+      "https://www.futhead.com/18/leagues",
+      "https://www.futhead.com/19/leagues"
+    ],
+    "extractors": [
+      {
+        "urlPattern": "https://www.futhead.com/([\\d]+)/leagues",
+        "type": "league",
+        "fields": [
+          {
+            "key": "key",
+            "dataType": "string",
+            "selector": "/html/body/div[3]/div[3]/div[1]/div[2]/ul/li/div[1]/a",
+            "fields": []
+          }, {
+            "key": "name",
+            "dataType": "string",
+            "selector": "/html/body/div[3]/div[3]/div/div[1]/ul/li[2]/div/a/span[1]/span[1]",
+            "fields": []
+          }, {
+            "key": "description",
+            "dataType": "string",
+            "selector": "/html/body/div[3]/div[3]/div[1]/div[2]/ul/li/div[1]/a",
+            "fields": []
+          }, {
+            "key": "icon",
+            "dataType": "image",
+            "selector": "/html/body/div[3]/div[3]/div/div[1]/ul/li[2]/div/a/span[1]/img",
+            "fields": []
+          }, {
+            "key": "country",
+            "dataType": "string",
+            "selector": "/html/body/div[3]/div[3]/div/div[1]/ul/li[2]/div/a/span[1]/span[2]",
+            "fields": []
+          }
+        ]
+      }, {
+        "urlPattern": "https://www.futhead.com/([\\d]+)/players/([\\w]+)",
+        "type": "player",
+        "fields": [
+          {
+            "key": "name",
+            "dataType": "string",
+            "selector": "/html/body/div[3]/div[3]/div[1]/div[2]/ul/li/div[1]/a",
+            "fields": []
+          }, {
+            "key": "bio",
+            "dataType": "string",
+            "selector": ".matches div:first-child a div div span",
+            "fields": []
+          }, {
+            "key": "image",
+            "dataType": "image",
+            "selector": "/html/body/div[3]/div[3]/div[1]/div[1]/div[2]/div/div[1]/div/div[1]/div[1]/div[2]/div[7]/img",
+            "fields": []
+          }, {
+            "key": "position",
+            "dataType": "string",
+            "selector": "/html/body/div[3]/div[3]/div[1]/div[1]/div[2]/div/div[1]/div/div[1]/div[1]/div[2]/div[4]",
+            "fields": []
+          }, {
+            "key": "team",
+            "dataType": "string",
+            "selector": "//*[@id=\"info-tab\"]/div/div[1]/div[2]/a",
+            "fields": []
+          }, {
+            "key": "country",
+            "dataType": "string",
+            "selector": "//*[@id=\"info-tab\"]/div/div[3]/div[2]/a",
+            "fields": []
+          }, {
+            "key": "strongFoot",
+            "dataType": "string",
+            "selector": "//*[@id=\"info-tab\"]/div/div[4]/div[2]",
+            "fields": []
+          }, {
+            "key": "statistics",
+            "dataType": "playerStatistic",
+            "selector": null,
+            "fields": [
+              {
+                "key": "pace",
+                "dataType": "number",
+                "selector": "/html/body/div[3]/div[3]/div[1]/div[1]/div[2]/div/div[1]/div/div[1]/div[1]/div[2]/div[8]",
+                "fields": []
+              }, {
+                "key": "shooting",
+                "dataType": "number",
+                "selector": "/html/body/div[3]/div[3]/div[1]/div[1]/div[2]/div/div[1]/div/div[1]/div[1]/div[2]/div[9]",
+                "fields": []
+              }, {
+                "key": "passing",
+                "dataType": "number",
+                "selector": "/html/body/div[3]/div[3]/div[1]/div[1]/div[2]/div/div[1]/div/div[1]/div[1]/div[2]/div[10]",
+                "fields": []
+              }, {
+                "key": "dribbling",
+                "dataType": "number",
+                "selector": "/html/body/div[3]/div[3]/div[1]/div[1]/div[2]/div/div[1]/div/div[1]/div[1]/div[2]/div[11]",
+                "fields": []
+              }, {
+                "key": "defending",
+                "dataType": "number",
+                "selector": "/html/body/div[3]/div[3]/div[1]/div[1]/div[2]/div/div[1]/div/div[1]/div[1]/div[2]/div[12]",
+                "fields": []
+              }, {
+                "key": "physical",
+                "dataType": "number",
+                "selector": "/html/body/div[3]/div[3]/div[1]/div[1]/div[2]/div/div[1]/div/div[1]/div[1]/div[2]/div[13]",
+                "fields": []
+              }
+            ]
+          }
+        ]
+      }, {
+        "urlPattern": "https://www.futhead.com/([\\d]+)/stadiums/([\\w]+)",
+        "type": "stadium",
+        "fields": [
+          {
+            "key": "name",
+            "dataType": "string",
+            "selector": "//*[@id=\"info\\-tab\"]/div/div[3]/div[2]/a",
+            "fields": []
+          }, {
+            "key": "description",
+            "dataType": "string",
+            "selector": "//*[@id=\"info\\-tab\"]/div/div[4]/div[2]",
+            "fields": []
+          }, {
+            "key": "team",
+            "dataType": "string",
+            "selector": "//*[@id=\"info\\-tab\"]/div/div[3]/div[2]/a",
+            "fields": []
+          }, {
+            "key": "league",
+            "dataType": "string",
+            "selector": "//*[@id=\"info\\-tab\"]/div/div[4]/div[2]",
+            "fields": []
+          }, {
+            "key": "country",
+            "dataType": "string",
+            "selector": "//*[@id=\"info\\-tab\"]/div/div[3]/div[2]/a",
+            "fields": []
+          }
+        ]
+      }, {
+        "urlPattern": "https://www.futhead.com/([\\d]+)/teams/([\\w]+)",
+        "type": "teams",
+        "fields": [
+          {
+            "key": "title",
+            "dataType": "string",
+            "selector": "/html/body/div[3]/div[1]/div/div/div/div/div[3]/span",
+            "fields": []
+          }, {
+            "key": "history",
+            "dataType": "string",
+            "selector": "",
+            "fields": []
+          }, {
+            "key": "icon",
+            "dataType": "image",
+            "selector": "/html/body/div[2]/div[1]/div/div[2]/h1/div[1]/img",
+            "fields": []
+          }, {
+            "key": "league",
+            "dataType": "string",
+            "selector": "/html/body/div[2]/div[1]/div/div[2]/h1/div[2]/small[2]",
+            "fields": []
+          }
+        ]
+      }
+    ],
+    "waitFor": "",
+    "depth": 10,
+    "urlRegex": "",
+    "spider": true,
+    "userId": 1
+  }, {
+    "id": null,
+    "name": "Sofascore Spider",
+    "description": "",
+    "urls": [
+      "https://www.sofascore.com/"
+    ],
+    "extractors": [
+      {
+        "urlPattern": "https://www.sofascore.com/([\\w\\-]+)/([\\w]+)",
+        "type": "game",
+        "fields": [
+          {
+            "key": "key",
+            "dataType": "string",
+            "selector": "//*[@id=\"pjax-container-main\"]/div/div[1]/div[1]/h2/span[2]",
+            "fields": []
+          }, {
+            "key": "homeTeam",
+            "dataType": "string",
+            "selector": "//*[@id=\"pjax-container-main\"]/div/div[2]/div/div[2]/div[8]/div[1]/div[1]/a/div[2]/div/span",
+            "fields": []
+          }, {
+            "key": "awayTeam",
+            "dataType": "string",
+            "selector": "//*[@id=\"pjax-container-main\"]/div/div[2]/div/div[2]/div[8]/div[1]/div[2]/a/div[2]/div/span",
+            "fields": []
+          }, {
+            "key": "homeScore",
+            "dataType": "string",
+            "selector": "//*[@id=\"pjax-container-main\"]/div/div[2]/div/div[1]/div[1]/div/div[2]/div[1]/span/span[1]",
+            "fields": []
+          }, {
+            "key": "awayScore",
+            "dataType": "string",
+            "selector": "//*[@id=\"pjax-container-main\"]/div/div[2]/div/div[1]/div[1]/div/div[2]/div[1]/span/span[2]",
+            "fields": []
+          }, {
+            "key": "play",
+            "dataType": "datetime",
+            "selector": "//*[@id=\"pjax-container-main\"]/div/div[2]/div/div[1]/div[2]/div/div[1]/div",
+            "fields": []
+          }, {
+            "key": "type",
+            "dataType": "string",
+            "selector": "",
+            "fields": []
+          }, {
+            "key": "status",
+            "dataType": "string",
+            "selector": "//*[@id=\"pjax-container-main\"]/div/div[2]/div/div[1]/div[2]/div/div[2]/div/span",
+            "fields": []
+          }, {
+            "key": "stadium",
+            "dataType": "string",
+            "selector": "//*[@id=\"event-info-root\"]/div/div[2]/p[2]",
+            "fields": []
+          }, {
+            "key": "season",
+            "dataType": "string",
+            "selector": "",
+            "fields": []
+          }, {
+            "key": "gameStatistics",
+            "dataType": "gameStatistics",
+            "fields": []
+          }, {
+            "key": "gameEvents",
+            "dataType": "gameStatistics",
+            "fields": []
+          }
+        ]
+      }
+    ],
+    "waitFor": ".odds-toggle__btn.js-list-toggle-odds, .js-event-page-event-name",
+    "depth": 10,
+    "urlRegex": "",
+    "spider": true,
+    "userId": 1
+  }, {
+    "id": null,
+    "name": "Goal News Spider",
+    "description": "",
+    "urls": [
+      "https://www.goal.com/"
+    ],
+    "extractors": [
+      {
+        "urlPattern": "https://www.goal.com/en/news/([\\w]+)/([\\w]+)",
+        "type": "news",
+        "fields": [
+          {
+            "key": "title",
+            "dataType": "string",
+            "selector": "/html/body/div[7]/div[2]/div/div[1]/div/div/article/div[1]/div[2]/header/h1",
+            "fields": []
+          }, {
+            "key": "content",
+            "dataType": "string",
+            "selector": "/html/body/div[7]/div[2]/div/div[1]/div/div/article/div[1]/div[9]",
+            "fields": []
+          }, {
+            "key": "excerpt",
+            "dataType": "string",
+            "selector": "/html/body/div[7]/div[2]/div/div[1]/div/div/article/div[1]/div[7]",
+            "fields": []
+          }
+        ]
+      }, {
+        "urlPattern": "https://www.goal.com/match/([\\w\\-]+])/([\\w]+)",
+        "type": "",
+        "fields": []
+      }
+    ],
+    "waitFor": "",
+    "depth": 10,
+    "urlRegex": "",
+    "spider": true,
+    "userId": 1
+  }
+]

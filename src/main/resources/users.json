@@ -1,0 +1,31 @@
+[
+	{
+		"firstName": "Daudi",
+		"lastName": "Kabaka",
+		"fullName": "Daudi Kabaka",
+		"username": "dkabaka",
+		"email": "dkabaka2027@gmail.com",
+		"telephone": "+254722709972",
+		"password": "123456789",
+		"salt": "string",
+		"algorithm": 1,
+		"status": "active",
+		"created": null,
+		"modified": null,
+		"roleId": 1
+	}, {
+		"firstName": "Sospeter",
+		"lastName": "Njenga",
+		"fullName": "Sospeter Njenga",
+		"username": "snjenga",
+		"email": "snjenga@gmail.com",
+		"telephone": "+254733597069",
+		"password": "123456789",
+		"salt": "string",
+		"algorithm": 1,
+		"status": "active",
+		"created": null,
+		"modified": null,
+		"roleId": 1
+	}
+]

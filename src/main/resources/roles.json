@@ -1,0 +1,43 @@
+[
+  {
+    "id": null,
+    "name": "Super Admin",
+    "description": "",
+    "tenant": false,
+    "permissions": [],
+    "created": null,
+    "modified": null
+  }, {
+    "id": null,
+    "name": "Admin",
+    "description": "",
+    "tenant": false,
+    "permissions": [],
+    "created": null,
+    "modified": null
+  }, {
+    "id": null,
+    "name": "Correspondent",
+    "description": "",
+    "tenant": false,
+    "permissions": [],
+    "created": null,
+    "modified": null
+  }, {
+    "id": null,
+    "name": "Data Entry",
+    "description": "",
+    "tenant": false,
+    "permissions": [],
+    "created": null,
+    "modified": null
+  }, {
+    "id": null,
+    "name": "Customer",
+    "description": "",
+    "tenant": false,
+    "permissions": [],
+    "created": null,
+    "modified": null
+  }
+]

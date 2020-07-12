@@ -1,0 +1,305 @@
+[
+  {
+    "id": null,
+    "name": "Paypal",
+    "description": "",
+    "code": "cc",
+    "baseUrl": "https://api.cc.com",
+    "authType": "BASIC",
+    "authLocation": "Header",
+    "authUrl": "https://api.cc.com/authorize",
+    "authKey": "",
+    "authFlow": ["authorize", "payment"],
+    "callback": "/payment/callback/$code",
+    "calls": [
+        {
+            "url": "https://api.cc.com/",
+            "httpMethod": "POST",
+            "code": "authorize",
+            "requestBody": [
+                {
+                    "key": "card",
+                    "type": "string",
+                    "null": false
+                }, {
+                    "key": "cve",
+                    "type": "number",
+                    "null": false
+                }, {
+                    "key": "amount",
+                    "type": "number",
+                    "null": false
+                }, {
+                    "key": "reference",
+                    "type": "string",
+                    "null": false
+                }
+            ],
+            "requestHeaders": [
+                {
+                    "key": "contentType",
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }, {
+                    "key": "auth",
+                    "name": "Authorization",
+                    "value": "$authKey"
+                }
+            ],
+            "responseBody": [
+                {
+                    "key": "code",
+                    "type": "string",
+                    "null": false
+                }, {
+                    "key": "reference",
+                    "type": "number",
+                    "null": false
+                }, {
+                    "key": "amount",
+                    "type": "number",
+                    "null": false
+                }, {
+                    "key": "reference",
+                    "type": "string",
+                    "null": false
+                }
+            ],
+        }, {
+            "url": "https://api.cc.com/",
+            "httpMethod": "POST",
+            "code": "payment",
+            "requestBody": [
+                {
+                    "key": "BusinessShortCode",
+                    "type": "string",
+                    "null": false
+                }, {
+                    "key": "Password",
+                    "type": "number",
+                    "null": false
+                }, {
+                    "key": "Timestamp",
+                    "type": "datetime",
+                    "null": false
+                }, {
+                    "key": "TransactionType",
+                    "type": "string",
+                    "null": false,
+                    "default": "CustomerPayBillOnline"
+                }, {
+                    "key": "Amount",
+                    "type": "number",
+                    "null": false
+                }, {
+                    "key": "PartyA",
+                    "type": "string",
+                    "null": false
+                }, {
+                    "key": "PartyB",
+                    "type": "string",
+                    "null": false
+                }, {
+                    "key": "PhoneNumber",
+                    "type": "string",
+                    "null": false
+                }, {
+                    "key": "CallBackURL",
+                    "type": "string",
+                    "null": false,
+                    "default": "$callbackUrl"
+                }, {
+                    "key": "AccountReference",
+                    "type": "string",
+                    "null": false
+                }, {
+                    "key": "TransactionDesc",
+                    "type": "string",
+                    "null": false
+                }
+            ],
+            "requestHeaders": [
+                {
+                    "key": "contentType",
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }, {
+                    "key": "auth",
+                    "name": "Authorization",
+                    "value": "$authKey"
+                }
+            ],
+            "responseBody": [
+                {
+                    "key": "MerchantRequestID",
+                    "type": "string",
+                    "null": false
+                }, {
+                    "key": "CheckoutRequestID",
+                    "type": "number",
+                    "null": false
+                }, {
+                    "key": "ResponseCode",
+                    "type": "datetime",
+                    "null": false
+                }, {
+                    "key": "ResultDesc",
+                    "type": "string",
+                    "null": false,
+                    "default": "CustomerPayBillOnline"
+                }, {
+                    "key": "ResponseDescription",
+                    "type": "number",
+                    "null": false
+                }, {
+                    "key": "ResultCode",
+                    "type": "string",
+                    "null": false
+                }
+            ],
+        }
+    ],
+    "created": null,
+    "modified": null
+  }, {
+    "id": null,
+    "name": "MPesa",
+    "description": "",
+    "code": "mpesa",
+    "baseUrl": "https://api.cc.com",
+    "testBaseUrl": "https://sandbox.safaricom.co.ke/mpesa",
+    "authType": "BASIC",
+    "authLocation": "Header",
+    "authUrl": null,
+    "authKey": "",
+    "authFlow": ["payment"],
+    "callback": "/payment/callback/$code",
+    "calls": [
+        {
+            "url": "/stkpush/v1/processrequest",
+            "httpMethod": "POST",
+            "code": "payment",
+            "requestBody": [
+                {
+                    "key": "BusinessShortCode",
+                    "type": "string",
+                    "description": "The organization shortcode used to receive the transaction.",
+                    "hidden": true,
+                    "null": false
+                }, {
+                    "key": "Password",
+                    "type": "number",
+                    "description": "The password for encrypting the request. This is generated by base64 encoding BusinessShortcode, Passkey and Timestamp.",
+                    "hidden": true,
+                    "null": false
+                }, {
+                    "key": "Timestamp",
+                    "type": "datetime",
+                    "format": "yyyymmddhhiiss",
+                    "description": "The timestamp of the transaction in the format yyyymmddhhiiss.",
+                    "hidden": true,
+                    "null": false
+                }, {
+                    "key": "TransactionType",
+                    "type": "string",
+                    "description": "The transaction type to be used for this request. Only CustomerPayBillOnline is supported.",
+                    "hidden": true,
+                    "null": false,
+                    "default": "CustomerPayBillOnline"
+                }, {
+                    "key": "Amount",
+                    "type": "number",
+                    "description": "The amount to be transacted.",
+                    "hidden": false,
+                    "null": false
+                }, {
+                    "key": "PartyA",
+                    "type": "string",
+                    "description": "The MSISDN sending the funds.",
+                    "hidden": true,
+                    "null": false
+                }, {
+                    "key": "PartyB",
+                    "type": "string",
+                    "description": "The organization shortcode receiving the funds",
+                    "hidden": true,
+                    "null": false,
+                    "default": ""
+                }, {
+                    "key": "PhoneNumber",
+                    "type": "string",
+                    "description": "The MSISDN sending the funds.",
+                    "hidden": true,
+                    "null": false
+                }, {
+                    "key": "CallBackURL",
+                    "type": "string",
+                    "description": "The url to where responses from M-Pesa will be sent to.",
+                    "hidden": true,
+                    "null": false,
+                    "default": "$callback"
+                }, {
+                    "key": "AccountReference",
+                    "type": "string",
+                    "description": "Used with M-Pesa PayBills.",
+                    "hidden": false,
+                    "null": false
+                }, {
+                    "key": "TransactionDesc",
+                    "type": "string",
+                    "description": "A description of the transaction.",
+                    "hidden": true,
+                    "null": false
+                }
+            ],
+            "requestHeaders": [
+                {
+                    "key": "contentType",
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }, {
+                    "key": "auth",
+                    "name": "Authorization",
+                    "value": "$authKey"
+                }
+            ],
+            "responseBody": [
+                {
+                    "key": "MerchantRequestID",
+                    "type": "string",
+                    "description": "Merchant Request ID",
+                    "null": false
+                }, {
+                    "key": "CheckoutRequestID",
+                    "type": "string",
+                    "description": "Checkout Request ID",
+                    "null": false
+                }, {
+                    "key": "ResponseCode",
+                    "type": "string",
+                    "description": "Response Code,",
+                    "null": false
+                }, {
+                    "key": "ResultDesc",
+                    "type": "string",
+                    "description": "Result Desc.",
+                    "null": false,
+                    "default": "CustomerPayBillOnline"
+                }, {
+                    "key": "ResponseDescription",
+                    "type": "number",
+                    "description": "Response Description message.",
+                    "null": false
+                }, {
+                    "key": "ResultCode",
+                    "type": "string",
+                    "description": "Result Code.",
+                    "null": false
+                }
+            ],
+        }
+    ],
+    "created": null,
+    "modified": null
+  }
+]
